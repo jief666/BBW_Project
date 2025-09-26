@@ -1,0 +1,21 @@
+prefix=$1
+#>&2 echo prefix="$prefix"
+
+
+echo "
+
+/Users/jief/Library/Arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+/Users/jief/Library/Arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+/Users/jief/Library/Arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+/Users/jief/Library/Caches/arduino/sketches/D71BC6A61E2A20E82E31961435389695/core
+/Users/jief/Library/Arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+/Users/jief/Library/Arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/nodemcu
+/Users/jief/Library/Arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+/Users/jief/Documents/Arduino/libraries/ESPAsyncTCP/src -I/Users/jief/Documents/Arduino/libraries/ESP_Async_WebServer/src
+/Users/jief/Library/Arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/Hash/src
+
+
+
+
+" | awk '$0!=""{ printf " -I'"${prefix}"'%s", $0; }'
+

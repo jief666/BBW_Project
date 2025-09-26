@@ -1,0 +1,26 @@
+#!/bin/bash
+SCRIPT_ABS_FILENAME=`LC_ALL=en_US.ISO8859-1 perl -e 'use Cwd "abs_path";print abs_path(shift)' "${BASH_SOURCE[0]}"`
+SCRIPT_DIR=`dirname "$SCRIPT_ABS_FILENAME"`
+
+
+echo \
+-fno-exceptions \
+-g \
+-Os \
+-nostdlib \
+-Wl,--no-check-sections \
+-u \
+app_entry \
+-u \
+_printf_float \
+-u \
+_scanf_float \
+-Wl,-static \
+-L../../ArduinoSDKESP8266/src/tools/sdk/lib \
+-L../../ArduinoSDKESP8266/src/tools/sdk/lib/NONOSDK22x_190703 \
+-L../../ArduinoSDKESP8266/src/tools/sdk/ld \
+-L.. \
+-Tlocal.eagle.flash.ld \
+-Wl,--gc-sections \
+-Wl,-wrap,system_restart_local \
+-Wl,-wrap,spi_flash_read \

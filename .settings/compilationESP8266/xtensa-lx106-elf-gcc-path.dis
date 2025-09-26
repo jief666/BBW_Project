@@ -1,0 +1,8 @@
+#this is sourced.
+
+gcc_path="$SCRIPT_DIR"/../../../../gcc-arm-none-eabi-4_9-2015q1
+#gcc_path="$SCRIPT_DIR"/../../../../gcc-arm-11.2-2022.02-darwin-x86_64-arm-none-eabi
+gcc_prefix=arm-none-eabi-
+gcc_suffix=
+#only bin_path is used by the caller
+bin_path="$gcc_path"/bin/"$gcc_prefix""$1""$gcc_suffix"

@@ -1,0 +1,39 @@
+#!/bin/zsh
+# BASH_SOURCE[0] is empty if this script is sourced
+# ${(%):-%x} only works if script is sourced
+# Script works both in bash and zsh
+SCRIPT_ABS_FILENAME=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "${BASH_SOURCE[0]:-${(%):-%x}}"`
+SCRIPT_DIR=`dirname "$SCRIPT_ABS_FILENAME"`
+
+#echo `pwd`
+#echo BASH_SOURCE="${BASH_SOURCE[@]}"
+#echo "$0" "$@"
+
+me=`basename "$0"`   # get invocation name (not the name of the target of the link)
+#echo me=$me
+
+name="${me##*-}"
+#echo name=$name
+
+prefix=${me%-$name}
+#echo prefix=$prefix
+
+args=( "$@" )
+
+source "$SCRIPT_DIR"/"$prefix"-path "$name"
+ps_dir="$SCRIPT_DIR"/../compilation_project_specific
+
+#echo '$bin_path'="$bin_path"
+#echo ----
+#echo '"$ps_dir"/"$prefix"-"$name"flags'="$ps_dir"/"$prefix"-"$name"flags
+#echo ----
+#echo '$("$ps_dir"/"$prefix"-"$name"flags)'="$("$ps_dir"/"$prefix"-"$name"flags)"
+#echo ----
+#echo '${args[@]}'="${args[@]}"
+#echo ----
+cmdArgs=()
+cmdArgs=( "$bin_path" "${args[@]}" )
+
+echo "${cmdArgs[@]}"
+
+exec "${cmdArgs[@]}"

@@ -1,0 +1,19 @@
+#this is sourced.
+
+gcc_path="$SCRIPT_DIR"/../../../eclipse-embedcpp-2023-09-R-macosx-cocoa-x86_64/3.1.0-gcc10.3-e5f9fec
+
+#set -x
+
+me_d61cfef37f42477098e679113b549ff2=`basename "$0"`   # get invocation name (not the name of the target of the link)
+#echo me_d61cfef37f42477098e679113b549ff2=$me_d61cfef37f42477098e679113b549ff2
+
+name_d61cfef37f42477098e679113b549ff2="${me##*-}"
+#echo name_d61cfef37f42477098e679113b549ff2=$name_d61cfef37f42477098e679113b549ff2
+
+gcc_prefix=${me%-$name_d61cfef37f42477098e679113b549ff2}
+#echo gcc_prefix=$prefix
+
+gcc_suffix=
+
+#only bin_path is used by the caller
+bin_path="$gcc_path"/bin/"$gcc_prefix"-"$1""$gcc_suffix"

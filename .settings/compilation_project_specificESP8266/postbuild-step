@@ -1,0 +1,20 @@
+#!/bin/zsh
+# BASH_SOURCE[0] is empty if this script is sourced
+# ${(%):-%x} only works if script is sourced
+# Script works both in bash and zsh
+SCRIPT_ABS_FILENAME=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "${BASH_SOURCE[0]:-${(%):-%x}}"`
+SCRIPT_DIR=`dirname "$SCRIPT_ABS_FILENAME"`
+
+#set -x
+
+if [ -z "$1" ]
+then
+  echo Usage: $0 name
+  exit 1
+fi
+
+../../python3/3.7.2-post1/python3 -I ../../ArduinoSDKESP8266/src/tools/elf2bin.py --eboot ../../ArduinoSDKESP8266/src/bootloaders/eboot/eboot.elf --app "$1".elf --flash_mode dio --flash_freq 40 --flash_size 4M --path ../../xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin --out "$1".bin
+
+../../python3/3.7.2-post1/python3 -I ../../ArduinoSDKESP8266/src/tools/signing.py --mode sign --privatekey ../private.key --bin "$1".bin --out "$1".bin.signed --legacy "$1".bin.legacy_sig
+
+../../python3/3.7.2-post1/python3 -X utf8 -I ../../ArduinoSDKESP8266/src/tools/sizes.py --elf "$1".elf --path ../../xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin --mmu "-DMMU_IRAM_SIZE=0x8000 -DMMU_ICACHE_SIZE=0x8000"

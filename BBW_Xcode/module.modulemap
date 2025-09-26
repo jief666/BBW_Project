@@ -1,0 +1,12 @@
+//
+//  module.modulemap
+//  BBW_Xcode
+//
+//  Created by Jief on 9/25/25.
+//
+
+module ArduinoMain {
+    header "ArduinoMain.h"
+
+    export *
+}

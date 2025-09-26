@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "22E7B55B-A02A-4147-934B-B5C622BCB082"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7341B062-0282-45DA-B73D-3A571CF2465E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../mongoose/mongoose.c"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "4052"
+            endingLineNumber = "4052"
+            landmarkName = "mg_listen(mgr, url, fn, fn_data)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "7341B062-0282-45DA-B73D-3A571CF2465E - ad4be3ca7040c085"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mg_listen"
+                  moduleName = "BBW_Xcode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///JiefLand/5.Devel/Embedded/ESPXcode/mongoose/mongoose.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "4052"
+                  endingLineNumber = "4052"
+                  offsetFromSymbolStart = "129">
+               </Location>
+               <Location
+                  uuid = "7341B062-0282-45DA-B73D-3A571CF2465E - ad4be3ca7040c085"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mg_listen"
+                  moduleName = "BBW_Xcode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///JiefLand/5.Devel/Embedded/ESPXcode/mongoose/mongoose.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "4052"
+                  endingLineNumber = "4052"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

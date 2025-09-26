@@ -1,0 +1,14 @@
+#!/bin/bash
+SCRIPT_ABS_FILENAME=`LC_ALL=en_US.ISO8859-1 perl -e 'use Cwd "abs_path";print abs_path(shift)' "${BASH_SOURCE[0]}"`
+SCRIPT_DIR=`dirname "$SCRIPT_ABS_FILENAME"`
+
+#echo -nostdinc -fshort-wchar -fno-builtin -fno-strict-aliasing -ffunction-sections -fdata-sections \
+#     -include AutoGen.h -fno-common -m64 -fno-stack-protector -mabi=ms -maccumulate-outgoing-args -mno-red-zone -mcmodel=small -fpie \
+#     -fno-asynchronous-unwind-tables -fno-omit-frame-pointer \
+#     -ffreestanding -fno-exceptions -fno-ms-extensions -fno-unwind-tables -mms-bitfields \
+	
+# -Wno-incompatible-ms-struct
+
+echo \
+-free -fipa-pta -Werror=return-type -mlongcalls -mtext-section-literals -falign-functions=4 -ffunction-sections -fdata-sections -fno-exceptions \
+
